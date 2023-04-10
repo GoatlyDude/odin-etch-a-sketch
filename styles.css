@@ -11,7 +11,10 @@
 :root {
   --white: white;
   --black: #043f50;
+  --grey: #849aa0;
   --transparent-black: #04405031;
+  --grid-rows: 1;
+  --grid-cols: 1;
 }
 
 /*Layout*/
@@ -27,12 +30,12 @@ header {
   height: 80px;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 0px;
 
 }
 
 main {
-  height: 100vh;
+  height: 90vh;
   padding: 20px 10%;
   gap: 40px;
   justify-content: space-between;
@@ -43,7 +46,7 @@ footer {
   height: 50px;
   background-color: var(--black);
   justify-content: center;
-align-items: center;
+  align-items: center;
 }
 
 .main-containers {
@@ -59,10 +62,25 @@ align-items: center;
 }
 
 #grid-container {
+  display: grid;
   min-width: 560px;
   height: 560px;
   border: 2px solid var(--black);
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
+
+.grid-item {
+  outline: 1px solid var(--black);
+  text-align: center;
+  background-color: var(--white);
+  user-select: none;
+}
+
+.grid-item:hover {
+  filter: brightness(90%);
+}
+
 
 button {
   width: 80%;
@@ -76,6 +94,45 @@ button {
 .button-active {
   background-color: var(--black);
   color: var(--white);
+}
+
+input {
+  width: 50px;
+  height: 40px;
+  font-size: 10rem;
+  color: var(--black);
+  border: 2px solid var(--black);
+  margin-right: 5px;
+  text-align: center;
+}
+
+#resize-window {
+  padding: 20px;
+  border: 4px solid var(--black);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#resize-header {
+  justify-content: space-between;
+  border-bottom: 2px solid var(--black);
+}
+
+#resize-area {
+justify-content: space-between;
+padding: 40px;
+gap: 25px;
+}
+
+.resize-container {
+  align-items: center;
+}
+
+#resize-button {
+  justify-content: center;
+  align-items: center;
 }
 
 /*Font*/
@@ -95,6 +152,24 @@ button {
   color: var(--black);
   transition: transform 200ms ease;
 }
+
+#resize-title {
+  color: var(--black);
+  font-size: 24rem;
+}
+
+#close-button {
+  width: 40px;
+  height: 40px;
+  font-size: 16rem;
+  
+}
+
+label {
+  font-size: 20rem;
+  color: var(--black);
+}
+
 
 /*Hover Effects*/
 
@@ -127,7 +202,7 @@ button:hover {
   }
 
   button:hover {
-    transform: scale(0.9);
+    transform: scale(1.1);
   }
 
   #grid-container {

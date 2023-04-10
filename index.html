@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch</title>
-    <sript src="grid.js" defer></sript>
+    <script type="text/javascript" src="grid.js" defer></script>
     <link rel="stylesheet" href="styles.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -22,28 +21,34 @@
         <button id="button-1" onclick="activeButton(this.id)" class="button-active">Black</button>
         <button id="button-2" onclick="activeButton(this.id)" class="button-inactive">Rainbow</button>
         <button id="button-3" onclick="activeButton(this.id)" class="button-inactive">Eraser</button>
-        <button id="button-4" class="button-inactive">Reset</button>
+        <button id="button-4" onclick="clearGrid()" class="button-inactive">Clear</button>
         <button id="button-5" class="button-inactive">Resize</button>
       </div>
       <div id="grid-container" class="main-containers"></div>
     </main>
 
+    <dialog id="resize-window">
+      <div id="resize-header" class="flex">
+        <h2 id="resize-title">Resize Grid </h2>
+        <button id="close-button">&times;</button>
+      </div>
+      <div class="flex" id="resize-area">
+        <div class="flex resize-container">
+          <label for="grid-dimensions">Width/Height</label>
+        </div>
+        <div class="flex resize-container">
+          <input id="grid-dimensions" name="grid-dimensions" type="number" min="1">
+          <label for="grid-dimensions">px</label>
+        </div>
+      </div>
+      <div class="flex" id="resize-button">
+        <button onclick="resizeGrid()">Resize</button>
+      </div>
+    </dialog>
+
     <footer class="flex">
       <h2>2023 GoatlyDude</h2>
     </footer>
 
-    <!--Change Button background-->
-    <script>
-      function activeButton (clickedID) {
-        const buttons = document.querySelectorAll("button");
-        buttons.forEach((btn) => {
-          btn.classList.remove("button-active");
-          btn.classList.add("button-inactive");
-        });
-        const button = document.getElementById(clickedID);
-        button.classList.remove("button-inactive");
-        button.classList.add("button-active");
-      }
-    </script>
   </body>
 </html>
